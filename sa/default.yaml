@@ -1,0 +1,9 @@
+metadata:
+  creationTimestamp: "2018-04-10T07:44:58Z"
+  name: default
+  namespace: helm
+  resourceVersion: "7796"
+  selfLink: /api/v1/namespaces/helm/serviceaccounts/default
+  uid: 116c483c-3c93-11e8-98af-52540051b57e
+secrets:
+- name: default-token-gs98x

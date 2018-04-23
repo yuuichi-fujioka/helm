@@ -1,0 +1,118 @@
+metadata:
+  creationTimestamp: "2018-04-10T07:45:10Z"
+  generateName: tiller-deploy-54f695b6f-
+  labels:
+    app: helm
+    name: tiller
+    pod-template-hash: "109251629"
+  name: tiller-deploy-54f695b6f-gq8kh
+  namespace: helm
+  ownerReferences:
+  - apiVersion: extensions/v1beta1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: tiller-deploy-54f695b6f
+    uid: 1877e466-3c93-11e8-98af-52540051b57e
+  resourceVersion: "9838"
+  selfLink: /api/v1/namespaces/helm/pods/tiller-deploy-54f695b6f-gq8kh
+  uid: 187ef7ea-3c93-11e8-98af-52540051b57e
+spec:
+  containers:
+  - env:
+    - name: TILLER_NAMESPACE
+      value: helm
+    - name: TILLER_HISTORY_MAX
+      value: "0"
+    image: gcr.io/kubernetes-helm/tiller:v2.7.2
+    imagePullPolicy: IfNotPresent
+    livenessProbe:
+      failureThreshold: 3
+      httpGet:
+        path: /liveness
+        port: 44135
+        scheme: HTTP
+      initialDelaySeconds: 1
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    name: tiller
+    ports:
+    - containerPort: 44134
+      name: tiller
+      protocol: TCP
+    readinessProbe:
+      failureThreshold: 3
+      httpGet:
+        path: /readiness
+        port: 44135
+        scheme: HTTP
+      initialDelaySeconds: 1
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: tiller-token-nwm9w
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  nodeName: worker-2
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: tiller
+  serviceAccountName: tiller
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: tiller-token-nwm9w
+    secret:
+      defaultMode: 420
+      secretName: tiller-token-nwm9w
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2018-04-10T07:45:10Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2018-04-10T08:02:12Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2018-04-10T07:45:10Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://c7b7b370d9352054e3c8cfcf6047e7608deed8f30a560781f39da40671a80371
+    image: gcr.io/kubernetes-helm/tiller:v2.7.2
+    imageID: docker-pullable://gcr.io/kubernetes-helm/tiller@sha256:df7f227fa722afc4931c912c1cad2c47856ec94f4d052ccceebcb16dd483dad8
+    lastState:
+      terminated:
+        containerID: docker://653208ba2e069d61bad7e8250ef6d00f43ffa405fbe10052275f1fe67e19430a
+        exitCode: 2
+        finishedAt: "2018-04-10T07:58:09Z"
+        reason: Error
+        startedAt: "2018-04-10T07:45:15Z"
+    name: tiller
+    ready: true
+    restartCount: 1
+    state:
+      running:
+        startedAt: "2018-04-10T08:01:59Z"
+  hostIP: 172.18.11.157
+  phase: Running
+  podIP: 10.29.133.196
+  qosClass: BestEffort
+  startTime: "2018-04-10T07:45:10Z"

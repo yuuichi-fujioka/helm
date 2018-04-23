@@ -1,0 +1,12 @@
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"ServiceAccount","metadata":{"annotations":{},"name":"tiller","namespace":"helm"}}
+  creationTimestamp: "2018-04-10T07:44:58Z"
+  name: tiller
+  namespace: helm
+  resourceVersion: "7797"
+  selfLink: /api/v1/namespaces/helm/serviceaccounts/tiller
+  uid: 116c99fb-3c93-11e8-98af-52540051b57e
+secrets:
+- name: tiller-token-nwm9w

@@ -1,0 +1,24 @@
+metadata:
+  creationTimestamp: "2018-04-10T07:45:10Z"
+  labels:
+    app: helm
+    name: tiller
+  name: tiller-deploy
+  namespace: helm
+  resourceVersion: "7822"
+  selfLink: /api/v1/namespaces/helm/services/tiller-deploy
+  uid: 187f04c6-3c93-11e8-98af-52540051b57e
+spec:
+  clusterIP: 10.104.67.242
+  ports:
+  - name: tiller
+    port: 44134
+    protocol: TCP
+    targetPort: tiller
+  selector:
+    app: helm
+    name: tiller
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

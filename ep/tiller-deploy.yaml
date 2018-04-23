@@ -1,0 +1,24 @@
+metadata:
+  creationTimestamp: "2018-04-10T07:45:10Z"
+  labels:
+    app: helm
+    name: tiller
+  name: tiller-deploy
+  namespace: helm
+  resourceVersion: "9842"
+  selfLink: /api/v1/namespaces/helm/endpoints/tiller-deploy
+  uid: 18962ae2-3c93-11e8-98af-52540051b57e
+subsets:
+- addresses:
+  - ip: 10.29.133.196
+    nodeName: worker-2
+    targetRef:
+      kind: Pod
+      name: tiller-deploy-54f695b6f-gq8kh
+      namespace: helm
+      resourceVersion: "9838"
+      uid: 187ef7ea-3c93-11e8-98af-52540051b57e
+  ports:
+  - name: tiller
+    port: 44134
+    protocol: TCP
